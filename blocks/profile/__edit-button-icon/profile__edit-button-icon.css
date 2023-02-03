@@ -1,0 +1,9 @@
+.profile__edit-button-icon {
+  background-image: url(../../../images/buttons/edit-button.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  width: 24px;
+  height: 24px;
+}

@@ -1,0 +1,8 @@
+.profile__add-button {
+  border: 2px solid rgba(255, 255, 255, 1);
+  width: 150px;
+  height: 50px;
+  background-image: url(../../../images/buttons/add-button.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
