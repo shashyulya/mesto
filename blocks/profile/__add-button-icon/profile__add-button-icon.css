@@ -5,6 +5,5 @@
   background-image: url(../../../images/buttons/add-button.png);
   background-repeat: no-repeat;
   background-position: center;
-  background-color: transparent;
-  cursor: pointer;
+  margin: 35px 0 35px 244px;
 }
