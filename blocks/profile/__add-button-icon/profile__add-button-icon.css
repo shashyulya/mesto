@@ -7,11 +7,11 @@
   background-position: center;
   margin: 35px 0 35px 244px;
 }
-@media screen and (min-width: 769px) and (max-width: 920px) {
+/*@media screen and (min-width: 769px) and (max-width: 920px) {
   .profile__add-button-icon {
     margin: 35px 0 35px 18px;
   }
-} 
+} */
 
 @media screen and (max-width: 768px) {
   .profile__add-button-icon {

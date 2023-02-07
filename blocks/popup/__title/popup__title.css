@@ -7,5 +7,15 @@
   margin: 34px 0 39px 0;
   width: 100%;
   padding: 34px 0 81;
-  
+}
+
+@media screen and (max-width: 920px) {
+  .popup__title {
+    width: 238px;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 34px 22px 75px;
+  }
 }

@@ -6,14 +6,8 @@
   flex-direction: row;
 }
 
-@media screen and (min-width: 769px) and (max-width: 920px) {
-  .profile__elements {
-    padding-left: 27;
-    width: 100%;
-  }
-}
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 920px) {
     .profile__elements {
       flex-direction: column;
       width: 282px;

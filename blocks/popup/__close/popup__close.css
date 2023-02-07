@@ -5,17 +5,20 @@
   top: -35px;
   right: -35px;
   padding: 0;
-  width: 32px;
-  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
   background: url(../../../images/buttons/close-button.svg);
   background-repeat: no-repeat;
   background-size: 32px;
-  background-color: rgba(0, 0, 0, 0);
+  aspect-ratio: 1/1;
 }
 
-@media screen and (min-width: 290px) and (max-width: 767px) {
+@media screen and (max-width: 920px) {
   .popup__close {
-    width: 20px;
-    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    background-size: 20px;
+    top: -35px;
+    right: 0;
   }
 }

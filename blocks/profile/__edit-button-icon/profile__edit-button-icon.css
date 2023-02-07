@@ -9,3 +9,14 @@
   margin-top: 37px;
   margin-bottom: 59px;
 }
+
+@media screen and (max-width: 920px) {
+  .profile__edit-button-icon {
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 193px;
+    right: 19px;
+  }
+}
