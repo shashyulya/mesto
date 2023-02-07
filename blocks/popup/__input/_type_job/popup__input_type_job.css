@@ -1,21 +1,3 @@
 .popup__input_type_job {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: #000000;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.211);
-  padding-bottom: 7px;
-  outline: none;
-}
 
-@media screen and (max-width: 920px) {
-  .popup__input_type_job {
-      font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    margin: 0 22px 30px;
-  }
 }
