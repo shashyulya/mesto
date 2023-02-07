@@ -6,9 +6,16 @@
   flex-direction: row;
 }
 
-@media screen and (min-width: 200px) and (max-width: 767px) {
+@media screen and (min-width: 769px) and (max-width: 920px) {
   .profile__elements {
-    flex-direction: column;
-    width: 282px;
+    padding-left: 27;
+    width: 100%;
   }
 }
+
+  @media screen and (max-width: 768px) {
+    .profile__elements {
+      flex-direction: column;
+      width: 282px;
+    }
+  }
