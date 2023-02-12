@@ -1,7 +1,7 @@
 .profile__info {
-padding-left: 30px;
-padding-right: 18px;
-min-width: 294px;
+  padding-left: 30px;
+  padding-right: 18px;
+  max-width: 294px;
 }
 
 @media screen and (max-width: 920px) {

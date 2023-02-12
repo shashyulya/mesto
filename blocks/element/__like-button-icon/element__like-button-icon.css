@@ -2,7 +2,7 @@
   border: 0;
   padding: 0;
   margin: 30 0;
-  background-image: url(../../../images/buttons/like-button.png);
+  background-image: url(../../../images/buttons/like-button.svg);
   background-repeat: no-repeat;
   z-index: 1;
   min-width: 22px;
@@ -11,4 +11,8 @@
   display: block;
   background-size: cover;
   background-size: contain;
-  }
+}
+
+.element__like-button-icon:hover {
+  opacity: 50%;
+}

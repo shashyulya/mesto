@@ -6,6 +6,3 @@
   cursor: pointer;
   transition: linear ease-in-out 0.3s;
 }
-.buttons:hover {
-  opacity: 60%;
-}
