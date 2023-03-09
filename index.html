@@ -25,7 +25,7 @@
     </section>
     <section aria-label="Лента картинок">
       <ul class="elements">
-        <li>
+        <!---<li>
           <article class="element">
             <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
             <div class="element__form">
@@ -78,29 +78,60 @@
               <button class="element__like-button-icon buttons" type="button" aria-label="Нравится"></button>
             </div>
           </article>
-        </li>
+        </li>-->
       </ul>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">© 2023 Шашкина Юлия</p>
   </footer>
-  <section class="popup">
-    <div class="popup__container">
-      <button class="popup__close-button buttons" type="button" aria-label="Закрыть">
-      </button>
-      <form class="popup__form" name="edit" novalidate>
+  <section class="popup popup_edit" id="popup-edit">
+    <div class="popup__container popup__container-edit">
+      <button class="popup__close-button buttons popup__close-edit" type="button" aria-label="Закрыть"></button>
+      <form class="popup__form popup__form-edit" name="edit" id="form-edit" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <fieldset class="popup__fieldset">
+        <fieldset class="popup__fieldset popup__field-edit">
           <input class="popup__input popup__input_type_name" type="text" id="name" name="name" required
             placeholder="Введите имя">
           <input class="popup__input popup__input_type_job" type="text" id="job" name="job" required
             placeholder="Введите профессию">
         </fieldset>
-        <button class="popup__save buttons" type="submit" aria-label="Сохранить">Сохранить</button>
+        <button class="popup__save popup__save-edit buttons" type="submit" aria-label="Сохранить">Сохранить</button>
       </form>
     </div>
   </section>
+  <section class="popup popup_add" id="popup-add">
+    <div class="popup__container popup__container-add">
+      <button class="popup__close-button buttons popup__close-add" type="button" aria-label="Кнопка закрыть"></button>
+      <form class="popup__form popup__form-add" id="form-add" name="add" novalidate>
+        <h2 class="popup__title">Новое место</h2>
+        <fieldset class="popup__fieldset popup__field-add">
+          <input class="popup__input popup__input_type_title" type="text" id="title" name="title" required
+            placeholder="Название">
+          <input class="popup__input popup__input_type_upload" type="src" id="upload" name="upload" required
+            placeholder="Ссылка на картинку">
+        </fieldset>
+        <button class="popup__save popup__save-add buttons" type="submit" aria-label="Создать">Создать</button>
+      </form>
+    </div>
+  </section>
+  <div class="popup popup_open-img" id="popup-open-image">
+    <figure class="popup__container popup__container_img">
+      <button class="popup__close-button popup__close-img" aria-label="Закрытие" type="button" id="close-image"></button>
+      <img class="popup__img" src="#" alt="#" id="popup-img">
+      <figcaption class="popup__text-img"></figcaption>
+    </figure>
+  </div>
+  <template id="template">
+    <li class="element">
+      <img class="element__image" src="#" alt="#">
+      <button class="element__delete-button-icon" type="button" aria-label="Кнопка корзина"></button>
+      <div class="element__form">
+        <h2 class="element__title"></h2>
+        <button class="element__like-button-icon buttons" type="button" aria-label="Кнопка лайк"></button>
+      </div>
+    </li>
+  </template>
   <script src="./scripts/index.js"></script>
 </body>
 
