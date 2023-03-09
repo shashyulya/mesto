@@ -16,14 +16,14 @@ const jobInput = document.querySelector('.popup__input_type_job');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 
-// Поля добавления новой карточки
+// Добавление новой карточки
 const addButton = document.querySelector('.profile__add-button-icon');
 const formAdd = document.querySelector('#form-add');
 const cardTitle = document.querySelector('.popup__input_type_title');
 const imageUpload = document.querySelector('.popup__input_type_upload');
 
 
-// Карточки
+// Карточки темплэйт
 const elements = document.querySelector('.elements');
 const template = document.querySelector('#template');
 
@@ -37,18 +37,20 @@ function openPopup(popup) {
 }
 
 // Закрытие попапов
-const closePopupButton = document.querySelectorAll('.popup__close');
+const closePopupButton = document.querySelectorAll('.popup__close-button');
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
 }
 
 closePopupButton.forEach((button) => {
-    // находим 1 раз ближайший к крестику попап 
+    // находим ближайший к крестику попап 
     const popup = button.closest('.popup');
     // устанавливаем обработчик закрытия на крестик
     button.addEventListener('click', () => closePopup(popup));
 });
+
+
 
 // Открытие попапа редактирования профиля
 function openPopupEdit() {
@@ -105,8 +107,10 @@ const initialCards = [
 // Добавление элементов массива в карточки
 const addElementCard = (cards) => {
     const newElementCard = template.content.cloneNode(true);
-    const newTitle = newElementCard.querySelector('.element__title'); // Добавили название
-    const newImage = newElementCard.querySelector('.element__image'); // Добавили картинку
+    // Добавили название
+    const newTitle = newElementCard.querySelector('.element__title');
+    // Добавили картинку
+    const newImage = newElementCard.querySelector('.element__image');
     newTitle.textContent = cards.name;
     newImage.src = cards.link;
 
