@@ -1,5 +1,5 @@
 // Все попап
-const popup = document.querySelectorAll('.popup');
+const popups = document.querySelectorAll('.popup');
 
 // Попапы по id
 const popupEdit = document.querySelector('#popup-edit');
@@ -32,18 +32,18 @@ const popupImageZoom = document.querySelector('.popup__img');
 const popupImageText = document.querySelector('.popup__text-img');
 
 // f открытия попапов
-function openPopup(popup) {
-    popup.classList.add('popup_opened');
+function openPopup(popups) {
+    popups.classList.add('popup_opened');
 }
 
 // Закрытие попапов
-const closePopupButton = document.querySelectorAll('.popup__close-button');
+const closePopupButtons = document.querySelectorAll('.popup__close-button');
 
-function closePopup(popup) {
-    popup.classList.remove('popup_opened');
+function closePopup(popups) {
+    popups.classList.remove('popup_opened');
 }
 
-closePopupButton.forEach((button) => {
+closePopupButtons.forEach((button) => {
     // находим ближайший к крестику попап 
     const popup = button.closest('.popup');
     // устанавливаем обработчик закрытия на крестик
@@ -153,7 +153,7 @@ formAdd.addEventListener('submit', (evt) => {
     const cards = { name: cardTitle.value, link: imageUpload.value };
 
     renderElementCard(elements, cards);
-    closePopup(add);
+    closePopup(popupAdd);
     evt.target.reset();
 });
 
@@ -169,13 +169,3 @@ function openPopupAdd(evt) {
 }
 
 addButton.addEventListener('click', openPopupAdd);
-
-// Добавление картинки и названия
-function saveAdd(cards) {
-    cardTitle.textContent = cards.name;
-    imageUpload.src = cards.link;
-    imageUpload.alt = cards.name;
-    closePopup(popupAdd);
-}
-
-formAdd.addEventListener('submit', saveAdd);
