@@ -34,9 +34,31 @@ const popupImageText = document.querySelector('.popup__text-img');
 // f открытия попапов
 function openPopup(popups) {
     popups.classList.add('popup_opened');
+    document.addEventListener('keydown', (evt) => {
+        if (evt.key === "Escape") {
+            popups.classList.remove('popup_opened');
+        }
+    });  
 }
+//Закрытие попапов при нажатии на оверлэй
+popups.forEach(item => {
+    item.addEventListener('click', (evt) => {
+        if (evt.target === evt.currentTarget) {
+            closePopup(item);
+        }
+    });
+});
+/*/ Закрытие по кнопке эскейп пока не работает
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+    //ваша функция закрытия окна //так тоже не работает evt.keyCode == 27
+    closePopup(item)
+    }
+    });
+    */
+ 
 
-// Закрытие попапов
+// Закрытие попапов 
 const closePopupButtons = document.querySelectorAll('.popup__close-button');
 
 function closePopup(popups) {
@@ -49,7 +71,6 @@ closePopupButtons.forEach((button) => {
     // устанавливаем обработчик закрытия на крестик
     button.addEventListener('click', () => closePopup(popup));
 });
-
 
 
 // Открытие попапа редактирования профиля
