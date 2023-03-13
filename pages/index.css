@@ -63,3 +63,6 @@
 @import url(../blocks/popup/__place-img/popup__place-img.css);
 @import url(../blocks/popup/__close-img/popup__close-img.css);
 @import url(../blocks/popup/__img-modal/popup__img-modal.css);
+@import url(../blocks/popup/__save/__save_disabled/popup__save_disabled.css);
+@import url(../blocks/popup/__input-error/popup__input-error.css);
+@import url(../blocks/popup/__input-error/__input-error_active/popup__input-error_active.css);

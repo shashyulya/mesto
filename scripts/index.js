@@ -42,21 +42,12 @@ function openPopup(popups) {
 }
 //Закрытие попапов при нажатии на оверлэй
 popups.forEach(item => {
-    item.addEventListener('click', (evt) => {
+    item.addEventListener('mousedown', (evt) => {
         if (evt.target === evt.currentTarget) {
             closePopup(item);
         }
     });
 });
-/*/ Закрытие по кнопке эскейп пока не работает
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-    //ваша функция закрытия окна //так тоже не работает evt.keyCode == 27
-    closePopup(item)
-    }
-    });
-    */
- 
 
 // Закрытие попапов 
 const closePopupButtons = document.querySelectorAll('.popup__close-button');
@@ -96,6 +87,7 @@ function saveEdit(evt) {
 // Прикрепляем обработчик к форме:
 // следит за событием “submit” - отправка
 formEdit.addEventListener('submit', saveEdit);
+
 
 // Массив карточек
 const initialCards = [

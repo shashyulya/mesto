@@ -1,0 +1,10 @@
+.popup__save_disabled {
+  background: #E5E5E5;
+  color: rgba(0, 0, 0, 1);
+  border: 1px solid rgba(0, 0, 0, 1);
+  box-sizing: border-box;
+  border-radius: 2px;
+  opacity: 0.2;
+  cursor: default;
+  transition: visibility 0.3s, opacity 0.4s linear;
+}
