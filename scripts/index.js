@@ -22,7 +22,6 @@ const formAdd = document.querySelector('#form-add');
 const cardTitle = document.querySelector('.popup__input_type_title');
 const imageUpload = document.querySelector('.popup__input_type_upload');
 
-
 // Карточки темплэйт
 const elements = document.querySelector('.elements');
 const template = document.querySelector('#template');
@@ -38,7 +37,7 @@ function openPopup(popups) {
         if (evt.key === "Escape") {
             popups.classList.remove('popup_opened');
         }
-    });  
+    }); 
 }
 //Закрытие попапов при нажатии на оверлэй
 popups.forEach(item => {
@@ -51,7 +50,6 @@ popups.forEach(item => {
 
 // Закрытие попапов 
 const closePopupButtons = document.querySelectorAll('.popup__close-button');
-
 function closePopup(popups) {
     popups.classList.remove('popup_opened');
 }
@@ -62,7 +60,6 @@ closePopupButtons.forEach((button) => {
     // устанавливаем обработчик закрытия на крестик
     button.addEventListener('click', () => closePopup(popup));
 });
-
 
 // Открытие попапа редактирования профиля
 function openPopupEdit() {
@@ -87,35 +84,6 @@ function saveEdit(evt) {
 // Прикрепляем обработчик к форме:
 // следит за событием “submit” - отправка
 formEdit.addEventListener('submit', saveEdit);
-
-
-// Массив карточек
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
 
 // Добавление элементов массива в карточки
 const addElementCard = (cards) => {
