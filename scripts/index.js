@@ -1,5 +1,6 @@
 // Все попап
 const popups = document.querySelectorAll('.popup');
+const popupForm = document.querySelector('.popup__form');
 
 // Попапы по id
 const popupEdit = document.querySelector('#popup-edit');
@@ -21,6 +22,7 @@ const addButton = document.querySelector('.profile__add-button-icon');
 const formAdd = document.querySelector('#form-add');
 const cardTitle = document.querySelector('.popup__input_type_title');
 const imageUpload = document.querySelector('.popup__input_type_upload');
+const buttonSaveDisabled = document.querySelector('popup__save_disabled');
 
 // Карточки темплэйт
 const elements = document.querySelector('.elements');
@@ -64,7 +66,6 @@ closePopupButtons.forEach((button) => {
     button.addEventListener('click', () => closePopup(popup));
 });
 
-
 // Открытие попапа редактирования профиля
 function openPopupEdit() {
     nameInput.value = profileName.textContent;
@@ -88,6 +89,10 @@ function saveEdit(evt) {
 // Прикрепляем обработчик к форме:
 // следит за событием “submit” - отправка
 formEdit.addEventListener('submit', saveEdit);
+
+/*деактивировать кнопку "Создать"
+formAdd.addEventListener('reset', buttonSaveDisabled);*/
+
 
 // Добавление элементов массива в карточки
 const addElementCard = (cards) => {
