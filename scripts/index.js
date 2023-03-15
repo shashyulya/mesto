@@ -13,6 +13,9 @@ const formEdit = document.querySelector('#form-edit');
 const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_job');
 
+const buttonEdit = document.querySelector('.popup__save-edit');
+const buttonAdd = document.querySelector('.popup__save-add');
+
 // Информация о пользователе
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
@@ -31,6 +34,18 @@ const template = document.querySelector('#template');
 // Переменные увеличение изображения
 const popupImageZoom = document.querySelector('.popup__img');
 const popupImageText = document.querySelector('.popup__text-img');
+
+
+// включение и отключение кнопок
+function toggleButtonOn (button) {
+    button.classList.remove('popup__save_disabled');
+    button.disabled = false;
+}
+
+function toggleButtonOff (button) {
+    button.classList.add('popup__save_disabled');
+    button.disabled = true;
+}
 
 // f открытия попапов
 function openPopup(popup) {
@@ -71,6 +86,7 @@ function openPopupEdit() {
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
     openPopup(popupEdit);
+    toggleButtonOn(buttonEdit);
 }
 
 profileEdit.addEventListener('click', openPopupEdit);
@@ -85,6 +101,7 @@ function saveEdit(evt) {
     // Выберите элементы, куда должны быть вставлены значения полей
     // Вставьте новые значения с помощью textContent
 }
+
 
 // Прикрепляем обработчик к форме:
 // следит за событием “submit” - отправка
@@ -156,6 +173,7 @@ function openPopupImage() {
 function openPopupAdd(evt) {
     evt.preventDefault();
     openPopup(popupAdd);
+    toggleButtonOff(buttonAdd);
 }
 
 addButton.addEventListener('click', openPopupAdd);
