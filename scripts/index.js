@@ -1,3 +1,6 @@
+import { Card } from './Card.js';
+import { initialCards } from './constants.js';
+
 // Все попап
 const popups = document.querySelectorAll('.popup');
 const popupForm = document.querySelector('.popup__form');
@@ -26,23 +29,32 @@ const formAdd = document.querySelector('#form-add');
 const cardTitle = document.querySelector('.popup__input_type_title');
 const imageUpload = document.querySelector('.popup__input_type_upload');
 const buttonSaveDisabled = document.querySelector('popup__save_disabled');
+const elements = document.querySelector('.elements');
 
 // Карточки темплэйт
-const elements = document.querySelector('.elements');
 const template = document.querySelector('#template');
 
 // Переменные увеличение изображения
 const popupImageZoom = document.querySelector('.popup__img');
 const popupImageText = document.querySelector('.popup__text-img');
 
+// f создания карточки
+function createCard(cardElement) {
+    return new Card(cardElement, '#template', openPopupImage).generateCard();
+}
+
+// 
+function renderCard(cardElement) {
+    elements.prepend(cardElement);
+};
 
 // включение и отключение кнопок
-function toggleButtonOn (button) {
+function toggleButtonOn(button) {
     button.classList.remove('popup__save_disabled');
     button.disabled = false;
 }
 
-function toggleButtonOff (button) {
+function toggleButtonOff(button) {
     button.classList.add('popup__save_disabled');
     button.disabled = true;
 }
@@ -110,7 +122,7 @@ formEdit.addEventListener('submit', saveEdit);
 /*деактивировать кнопку "Создать"
 formAdd.addEventListener('reset', buttonSaveDisabled);*/
 
-
+/*
 // Добавление элементов массива в карточки
 const addElementCard = (cards) => {
     const newElementCard = template.content.cloneNode(true);
@@ -120,54 +132,24 @@ const addElementCard = (cards) => {
     const newImage = newElementCard.querySelector('.element__image');
     newTitle.textContent = cards.name;
     newImage.src = cards.link;
+*/
 
-    // Лайк карточке
-    const cardLike = newElementCard.querySelector('.element__like-button-icon');
-    cardLike.addEventListener('click', () => {
-        cardLike.classList.toggle('element__like-button-icon_active');
-    });
-    // Удаление карточки
-    const deleteCard = newElementCard.querySelector('.element__delete-button-icon');
-    const cardButtonDelete = (evt) => {
-        evt.target.closest('.element').remove();
-    }
-
-    deleteCard.addEventListener('click', cardButtonDelete);
-    cardLike.addEventListener('click', cardLike);
-
-    newImage.addEventListener('click', () => {
-        popupImageZoom.src = cards.link;
-        popupImageZoom.alt = cards.name;
-        popupImageText.textContent = cards.name;
-        openPopupImage();
-    });
-
-    return newElementCard;
+function openPopupImage(name, link) {
+    popupImageZoom.src = link;
+    popupImageZoom.alt = name;
+    popupImageText.textContent = name;
+    openPopup(popupImage);
 };
-
-// Добавление карточки
-const renderElementCard = (wrap, cards) => {
-    wrap.prepend(addElementCard(cards));
-};
-
-// Вставика элементов массива в карточку
-initialCards.forEach((cards) => {
-    renderElementCard(elements, cards);
-});
-
-formAdd.addEventListener('submit', (evt) => {
+// f добавления новой карточки
+function addNewCard (evt) {
     evt.preventDefault();
     const cards = { name: cardTitle.value, link: imageUpload.value };
-
-    renderElementCard(elements, cards);
-    closePopup(popupAdd);
+    renderCard(createCard(cards));
+    
     evt.target.reset();
-});
-
-// Открываем попав увеличенной фотографии и добавляем картинку и название    
-function openPopupImage() {
-    openPopup(popupImage);
-}
+    closePopup(popupAdd);
+} 
+formAdd.addEventListener('submit', addNewCard);
 
 // Открытие попапа добавления картинки
 function openPopupAdd(evt) {
@@ -177,10 +159,15 @@ function openPopupAdd(evt) {
 }
 
 addButton.addEventListener('click', openPopupAdd);
-
+/*
 const cleanValidationFields = (input) => {
     input.querySelectorAll(".popup__input-error")
     input.forEach((input) => input.classList.remove("popup__input-error"));
     input.querySelectorAll(".popup__input-error_active")
     input.forEach((input) => input.classList.remove("popup__input-error_active"));
 };
+*/
+// Вставика элементов массива в карточку
+initialCards.forEach((cardElement) => {
+    renderCard(createCard(cardElement));
+});
