@@ -107,4 +107,4 @@ export class FormValidator {
       formElement.addEventListener("submit", disabledSubmit);
       this._setEventListeners(validationConfig, formElement); // Для каждой формы вызываем функцию setEventListeners, передав ей элемент формы
     });
-  }
+  };

@@ -1,10 +1,10 @@
+import { FormValidator } from "./FormValidator.js";
 import { Card } from './Card.js';
 import { initialCards } from './constants.js';
-//import { FormValidator } from "./FormValidator.js";
+import { validationConfig } from './FormValidator.js';
 
 // Все попап
 const popups = document.querySelectorAll('.popup');
-const popupForm = document.querySelector('.popup__form');
 
 // Попапы по id
 const popupEdit = document.querySelector('#popup-edit');
@@ -29,7 +29,6 @@ const addButton = document.querySelector('.profile__add-button-icon');
 const formAdd = document.querySelector('#form-add');
 const cardTitle = document.querySelector('.popup__input_type_title');
 const imageUpload = document.querySelector('.popup__input_type_upload');
-const buttonSaveDisabled = document.querySelector('popup__save_disabled');
 const elements = document.querySelector('.elements');
 
 // Карточки темплэйт
@@ -79,6 +78,7 @@ popups.forEach(item => {
         }
     });
 });
+
 // Закрытие попапов 
 const closePopupButtons = document.querySelectorAll('.popup__close-button');
 
@@ -115,25 +115,9 @@ function saveEdit(evt) {
     // Вставьте новые значения с помощью textContent
 }
 
-
 // Прикрепляем обработчик к форме:
 // следит за событием “submit” - отправка
 formEdit.addEventListener('submit', saveEdit);
-
-/*деактивировать кнопку "Создать"
-formAdd.addEventListener('reset', buttonSaveDisabled);*/
-
-/*
-// Добавление элементов массива в карточки
-const addElementCard = (cards) => {
-    const newElementCard = template.content.cloneNode(true);
-    // Добавили название
-    const newTitle = newElementCard.querySelector('.element__title');
-    // Добавили картинку
-    const newImage = newElementCard.querySelector('.element__image');
-    newTitle.textContent = cards.name;
-    newImage.src = cards.link;
-*/
 
 function openPopupImage(name, link) {
     popupImageZoom.src = link;
@@ -142,14 +126,14 @@ function openPopupImage(name, link) {
     openPopup(popupImage);
 };
 // f добавления новой карточки
-function addNewCard (evt) {
+function addNewCard(evt) {
     evt.preventDefault();
     const cards = { name: cardTitle.value, link: imageUpload.value };
     renderCard(createCard(cards));
-    
+
     evt.target.reset();
     closePopup(popupAdd);
-} 
+}
 formAdd.addEventListener('submit', addNewCard);
 
 // Открытие попапа добавления картинки
