@@ -20,7 +20,7 @@ disabledSubmit(e) {
 }
 
 // Функция, которая добавляет класс с ошибкой.
-_showInputError = (validationConfig, inputElement, errorMessage) => {
+_showInputError = (inputElement, errorMessage) => {
   // находим элемент ошибки внутри самой функции
   const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
   this._inputElement.classList.add(this._validationConfig.inputErrorActive);
@@ -79,9 +79,9 @@ _resetFormCondition = (validationConfig, formElement) => {
 // Функция isValid принимает сразу два параметра: formElement — html-элемент формы, в которой находится проверяемое поле ввода. Он нужен для поиска элемента ошибки в форме. И inputElement — проверяемое поле ввода.*
 _isValid = (inputElement) => {
   if (!this._inputElement.validity.valid) { // Если поле не проходит валидацию, покажем ошибку передаем сообщение об ошибке вторым аргументом
-    _showInputError(inputElement); //ShowInputError теперь получает параметром форму, в которой находится проверяемое поле, и само это поле.
+    _showInputError(validationConfig, formElement, inputElement, inputElement.validationMessage); //ShowInputError теперь получает параметром форму, в которой находится проверяемое поле, и само это поле.
   } else {
-    _hideInputError(inputElement); // Если поле прошло валидацию, скроем ошибку // hideInputError теперь получает параметром форму, в которой находится проверяемое полу, и само это поле.
+    _hideInputError(validationConfig, formElement, inputElement); // Если поле прошло валидацию, скроем ошибку // hideInputError теперь получает параметром форму, в которой находится проверяемое полу, и само это поле.
   }
 };
 
