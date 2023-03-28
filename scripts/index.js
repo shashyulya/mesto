@@ -1,6 +1,6 @@
 import { Card } from './Card.js';
 import { initialCards } from './constants.js';
-import { FormValidator } from "./FormValidator.js";
+//import { FormValidator } from "./FormValidator.js";
 
 // Все попап
 const popups = document.querySelectorAll('.popup');
@@ -174,7 +174,7 @@ initialCards.forEach((cardElement) => {
 });
 
 const validationEditForm = new FormValidator(validationConfig, popupEdit);
-validationEditForm.enableValidation(validationConfig);
+validationEditForm.enableValidation();
 
 const validationAddForm = new FormValidator(validationConfig, popupAdd);
-validationAddForm.enableValidation(validationConfig);
+validationAddForm.enableValidation();

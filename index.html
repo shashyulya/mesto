@@ -15,10 +15,10 @@
   </header>
   <main class="content">
     <section class="profile" aria-label="Профиль пользователя">
-      <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар пользователя">
+      <img class="profile__avatar" src="./images/avatar-surfing.jpg" alt="Аватар пользователя">
       <div class="profile__info">
-        <h1 class="profile__name">Жак-Ив Кусто</h1>
-        <p class="profile__job">Исследователь океана</p>
+        <h1 class="profile__name">Surfing Places</h1>
+        <p class="profile__job">Surf spots around the world</p>
       </div>
       <button class="profile__edit-button-icon buttons" type="button" aria-label="Изменить"></button>
       <button class="profile__add-button-icon buttons" type="button" aria-label="Добавить"></button>
@@ -93,10 +93,10 @@
         <fieldset class="popup__fieldset popup__field-edit">
           <input class="popup__input popup__input_type_name" type="text" id="name" name="name" required
             placeholder="Введите имя" minlength="2" maxlength="40">
-            <span class="popup__input-error name-error" id="name-error"></span>
+          <span class="popup__input-error name-error" id="name-error"></span>
           <input class="popup__input popup__input_type_job" type="text" id="job" name="job" required
             placeholder="Введите профессию" minlength="2" maxlength="200">
-            <span class="popup__input-error job-error" id="job-error"></span>
+          <span class="popup__input-error job-error" id="job-error"></span>
         </fieldset>
         <button class="popup__save popup__save-edit buttons" type="submit" aria-label="Сохранить">Сохранить</button>
       </form>
@@ -110,10 +110,10 @@
         <fieldset class="popup__fieldset popup__field-add">
           <input class="popup__input popup__input_type_title" type="text" id="title" name="title" required
             placeholder="Название">
-            <span class="popup__input-error title-error" id="title-error"></span>
+          <span class="popup__input-error title-error" id="title-error"></span>
           <input class="popup__input popup__input_type_upload" type="url" id="upload" name="upload" required
             placeholder="Ссылка на картинку">
-            <span class="popup__input-error upload-error" id="upload-error"></span>
+          <span class="popup__input-error upload-error" id="upload-error"></span>
         </fieldset>
         <button class="popup__save popup__save-add buttons" type="submit" aria-label="Создать">Создать</button>
       </form>
@@ -121,7 +121,8 @@
   </section>
   <div class="popup popup_open-img" id="popup-open-image">
     <figure class="popup__container popup__container_img">
-      <button class="popup__close-button popup__close-img" aria-label="Закрытие" type="button" id="close-image"></button>
+      <button class="popup__close-button popup__close-img" aria-label="Закрытие" type="button"
+        id="close-image"></button>
       <img class="popup__img" src="#" alt="#" id="popup-img">
       <figcaption class="popup__text-img"></figcaption>
     </figure>
@@ -137,8 +138,8 @@
     </li>
   </template>
   <script type='module' src="./scripts/constants.js"></script>
-  <script type='module' src="./scripts/FormValidator.js"></script>
   <script type='module' src="./scripts/Card.js"></script>
+  <script type='module' src="./scripts/FormValidator.js"></script>
   <script type='module' src="./scripts/index.js"></script>
 </body>
 

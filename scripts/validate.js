@@ -1,4 +1,4 @@
-const list = {
+const validationConfig = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   saveButtonSelector: ".popup__save",
@@ -102,4 +102,4 @@ const enableValidation = (validationConfig) => {
   });
 };
 
-enableValidation(list);
+enableValidation(validationConfig);
