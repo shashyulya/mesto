@@ -17,9 +17,6 @@ const formEdit = document.querySelector('#form-edit');
 const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_job');
 
-const buttonEdit = document.querySelector('.popup__save-edit');
-const buttonAdd = document.querySelector('.popup__save-add');
-
 // Информация о пользователе
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
@@ -31,12 +28,12 @@ const cardTitle = document.querySelector('.popup__input_type_title');
 const imageUpload = document.querySelector('.popup__input_type_upload');
 const elements = document.querySelector('.elements');
 
-// Карточки темплэйт
-const template = document.querySelector('#template');
-
 // Переменные увеличение изображения
 const popupImageZoom = document.querySelector('.popup__img');
 const popupImageText = document.querySelector('.popup__text-img');
+
+const validationAddForm = new FormValidator(validationConfig, formAdd);
+const validationEditForm = new FormValidator(validationConfig, formEdit);
 
 // f создания карточки
 function createCard(cardElement) {
@@ -47,17 +44,6 @@ function createCard(cardElement) {
 function renderCard(cardElement) {
     elements.prepend(cardElement);
 };
-
-// включение и отключение кнопок
-function toggleButtonOn(button) {
-    button.classList.remove('popup__save_disabled');
-    button.disabled = false;
-}
-
-function toggleButtonOff(button) {
-    button.classList.add('popup__save_disabled');
-    button.disabled = true;
-}
 
 // f открытия попапов
 function openPopup(popup) {
@@ -98,8 +84,8 @@ closePopupButtons.forEach((button) => {
 function openPopupEdit() {
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
+    validationEditForm.resetFormCondition();
     openPopup(popupEdit);
-    toggleButtonOn(buttonEdit);
 }
 
 profileEdit.addEventListener('click', openPopupEdit);
@@ -137,10 +123,9 @@ function addNewCard(evt) {
 formAdd.addEventListener('submit', addNewCard);
 
 // Открытие попапа добавления картинки
-function openPopupAdd(evt) {
-    evt.preventDefault();
+function openPopupAdd() {
+    validationAddForm.resetFormCondition();
     openPopup(popupAdd);
-    toggleButtonOff(buttonAdd);
 }
 
 addButton.addEventListener('click', openPopupAdd);
@@ -157,8 +142,6 @@ initialCards.forEach((cardElement) => {
     renderCard(createCard(cardElement));
 });
 
-const validationEditForm = new FormValidator(validationConfig, popupEdit);
 validationEditForm.enableValidation();
 
-const validationAddForm = new FormValidator(validationConfig, popupAdd);
 validationAddForm.enableValidation();
