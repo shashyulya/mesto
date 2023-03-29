@@ -15,7 +15,7 @@ export class FormValidator {
     this._saveButtonSelector = saveButtonSelector;
     this._inputList = inputList;
   }
-}
+
 
 // Функция, которая добавляет класс с ошибкой.
 _showInputError = (inputElement, errorMessage) => {
@@ -105,4 +105,5 @@ enableValidation = (validationConfig) => {
     formElement.addEventListener("submit", disabledSubmit);
     this._setEventListeners(validationConfig, formElement); // Для каждой формы вызываем функцию setEventListeners, передав ей элемент формы
   });
+};
 };
