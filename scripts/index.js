@@ -40,7 +40,6 @@ function createCard(cardElement) {
     return new Card(cardElement, '#template', openPopupImage).generateCard();
 }
 
-// 
 function renderCard(cardElement) {
     elements.prepend(cardElement);
 };
@@ -143,5 +142,4 @@ initialCards.forEach((cardElement) => {
 });
 
 validationEditForm.enableValidation();
-
 validationAddForm.enableValidation();
