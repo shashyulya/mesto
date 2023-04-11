@@ -7,8 +7,10 @@
   font-size: 12px;
   line-height: 15px;
   color: rgba(255, 0, 0, 1);
-  /*
-  padding: 5px 0 13px 0;
-  visibility: hidden;
-  */
+}
+
+@media screen and (max-width: 920px) {
+  .popup__input-error {
+    margin-left: 22px;
+  }
 }
