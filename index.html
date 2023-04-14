@@ -109,7 +109,8 @@
         <h2 class="popup__title">Новое место</h2>
         <fieldset class="popup__fieldset popup__field-add">
           <input class="popup__input popup__input_type_title" type="text" id="title" name="title" required
-            placeholder="Название" minlength="1" maxlength="30">
+            placeholder="Название" minlength="2" maxlength="30">
+          <!-- По поводу валидации теперь поняла про что вы - я до этого смотрела бриф по ПР в Notion и там от 1 до 30 символов. -->
           <span class="popup__input-error title-error" id="title-error"></span>
           <input class="popup__input popup__input_type_upload" type="url" id="upload" name="upload" required
             placeholder="Ссылка на картинку">

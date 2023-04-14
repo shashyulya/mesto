@@ -46,9 +46,9 @@ export class FormValidator {
 
   // Ищем невалидные поля. Функция принимает массив полей формы и вернет true, если хотя бы одно поле не валидно, и false, если все валидны.
   _hasInvalidInput = () => {
-    return this._inputList.some((inputElement) => { 
+    return this._inputList.some((inputElement) => {
       //Функция принимает массив полей формы и вернет true, если хотя бы одно поле не валидно, и false, если все валидны
-      return !inputElement.validity.valid; 
+      return !inputElement.validity.valid;
       //Eсли поле не валидно, вернет true. Обход массива остановится и вся фкнуция вернет true
     });
 
@@ -66,7 +66,7 @@ export class FormValidator {
   //f проверки формы , деактивании кнопки и удаления текста ошибки
   resetFormCondition = () => {
     this._toggleButtonState(); //Включаем проверку опр статуса кнопки
-    this._inputList.forEach(inputElement => { 
+    this._inputList.forEach(inputElement => {
       //Каждому инпуту включаем обработчик скрытия ошибки (ps инпуты при повторном открытии попап добавления картинки очищаются после сабмита)
       this._hideInputError(inputElement);
     });
@@ -76,7 +76,7 @@ export class FormValidator {
   // f isValid принимает сразу два параметра: formElement — html-элемент формы, в которой находится проверяемое поле ввода. Он нужен для поиска элемента ошибки в форме. И inputElement — проверяемое поле ввода.*
   _isValid = (inputElement) => {
     if (!inputElement.validity.valid) { // Если поле не проходит валидацию, покажем ошибку передаем сообщение об ошибке вторым аргументом
-      this._showInputError(inputElement, inputElement.validationMessage); 
+      this._showInputError(inputElement, inputElement.validationMessage);
       //ShowInputError теперь получает параметром форму, в которой находится проверяемое поле, и само это поле.
     } else {
       this._hideInputError(inputElement); // Если поле прошло валидацию, скроем ошибку 
@@ -95,15 +95,19 @@ export class FormValidator {
     });
   };
 
-  // f, которая найдет, переберет все формы на странице и добавит всем формам обработчик
+  /* // f, которая найдет, переберет все формы на странице и добавит всем формам обработчик
+   enableValidation = () => {
+     const formList = Array.from(document.querySelectorAll(this._validationConfig.formSelector)); 
+     //const formList = Array.from(document.querySelector(this._validationConfig.formSelector)); 
+     //Находим форму с указанным классом в DOM, делаем массив через Array.from
+     formList.forEach((formElement) => { //Перебираем полученный массив
+       formElement.addEventListener('submit', (evt) => {
+         evt.preventDefault();
+       });
+       this._setEventListeners(); // Для каждой формы вызываем f setEventListeners, передав ей элемент формы
+     });
+   };*/
   enableValidation = () => {
-    const formList = Array.from(document.querySelector(this._validationConfig.formSelector)); 
-    //Находим форму с указанным классом в DOM, делаем массив через Array.from
-    formList.forEach((formElement) => { //Перебираем полученный массив
-      formElement.addEventListener('submit', (evt) => {
-        evt.preventDefault();
-      });
-      this._setEventListeners(); // Для каждой формы вызываем f setEventListeners, передав ей элемент формы
-    });
+    this._setEventListeners();
   };
 };
